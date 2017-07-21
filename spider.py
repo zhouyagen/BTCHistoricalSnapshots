@@ -6,12 +6,12 @@ import  re;
 # httpconnetion
 #获得历史快照信息
 def urls():
-    page = requests.get("https://coinmarketcap.com/historical/");
+    page = requests.get("http://coinmarketcap.com/historical/");
     tree = html.fromstring(page.text);
     nodes = tree.xpath("//li[@class=\"text-center\"]/a");
     array = [];
     for n in nodes:
-         array.append("https://coinmarketcap.com/" + n.get("href"));
+         array.append("http://coinmarketcap.com" + n.get("href"));
     return  array;
 
 def marketCap():
